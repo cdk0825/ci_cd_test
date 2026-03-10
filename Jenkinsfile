@@ -1,3 +1,32 @@
+pipeline {
+    agent any 
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out from GitHub...'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Building Project...'
+                // 예: sh 'pip install -r requirements.txt'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running Tests...'
+                // 예: sh 'pytest' (테스트 성공/실패 여부 확인)
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying to Server...'
+            }
+        }
+    }
+}
+
 // pipeline {
 //     agent any
 
@@ -168,31 +197,3 @@
 //     }
 // } // pipeline 끝
 
-pipeline {
-    agent any 
-
-    stages {
-        stage('Checkout') {
-            steps {
-                echo 'Checking out from GitHub...'
-            }
-        }
-        stage('Build') {
-            steps {
-                echo 'Building Project...'
-                // 예: sh 'pip install -r requirements.txt'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Running Tests...'
-                // 예: sh 'pytest' (테스트 성공/실패 여부 확인)
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying to Server...'
-            }
-        }
-    }
-}
